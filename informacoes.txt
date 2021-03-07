@@ -1,0 +1,6 @@
+Autor: José Leonardo dos Santos Costa
+email: joseleonardodacosta@gmail.com
+Sistema Web criado com ASP .NET Core MVC e Entity Framework,
+banco de dados em mysql, 
+nome do banco CadastroEstabelecimento,
+para criação do banco rodar Migration CriarBancoFinal.

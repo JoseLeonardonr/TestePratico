@@ -1,0 +1,93 @@
+﻿
+
+@model CadastroEstabelecimento.Models.ViewModels.EstabelecimentosFormViewModel;
+
+@{
+    ViewData["Title"] = "Novo Estabelecimento";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Razao" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Razao" class="form-control" />
+                <span asp-validation-for="Estabelecimentos.Razao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Nome" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Nome" class="form-control" />
+                <span asp-validation-for="Estabelecimentos.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Cnpj" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Cnpj" class="form-control cnpj" id="cnpj" />
+                <span asp-validation-for="Estabelecimentos.Cnpj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Email" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Email" class="form-control" />
+                <span asp-validation-for="Estabelecimentos.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Endereco" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Endereco" class="form-control" />
+                <span asp-validation-for="Estabelecimentos.Endereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Cidade" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Cidade" class="form-control" />
+                <span asp-validation-for="Estabelecimentos.Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Estado" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Estado" class="form-control" />
+                <span asp-validation-for="Estabelecimentos.Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Telefone" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Telefone" class="form-control telefone" placeholder="Ex:(00)0000-0000" />
+                <span asp-validation-for="Estabelecimentos.Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.DataCadastro" class="control-label"></label>
+                <input asp-for="Estabelecimentos.DataCadastro" class="form-control" />
+                <span asp-validation-for="Estabelecimentos.DataCadastro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Agencia" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Agencia" class="form-control agencia" placeholder="Ex:000-1" />
+                <span asp-validation-for="Estabelecimentos.Agencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.Conta" class="control-label"></label>
+                <input asp-for="Estabelecimentos.Conta" class="form-control conta" placeholder="Ex:00.000-0" />
+                <span asp-validation-for="Estabelecimentos.Conta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estabelecimentos.CategoriasId" class="control-label"></label>
+                <select asp-for="Estabelecimentos.CategoriasId" asp-items="@(new SelectList(Model.Categorias,"Id","CategoriaDescricao"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+
+                    <label asp-for="Estabelecimentos.Status" ></label>
+                    <input type="radio" name="status" value="1"/>Ativo
+                    <input type="radio" name="status" value="0" />Inativo
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,25 @@
+﻿@model CadastroEstabelecimento.Models.Categorias
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Deseja excluir a categoria?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoriaDescricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CategoriaDescricao)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-default btn-sm"/> |
+        <a asp-action="Index" class="btn btn-default btn-sm">Voltar</a>
+    </form>
+</div>
